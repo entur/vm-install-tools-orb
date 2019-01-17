@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  orb-tools: circleci/orb-tools@3.0.0
+
 executors:
   cli:
     resource_class: small
@@ -28,3 +31,15 @@ workflows:
     jobs:
       - lint
       - validate
+      - orb-tools/test-in-builds:
+          name: test
+          orb-location: src/@orb.yml
+          orb-name: vm-install
+          test-steps:
+            - vm-install/install-java11
+            - vm-install/install-gradle
+            - vm-install/install-docker-compose
+            - run: |
+                java --version
+                gradle --version
+                docker-compose --version

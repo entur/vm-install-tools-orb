@@ -1,0 +1,30 @@
+version: 2.1
+
+executors:
+  cli:
+    resource_class: small
+    docker:
+      - image: circleci/circleci-cli
+  lint-condo:
+    resource_class: small
+    docker:
+      - image: singapore/lint-condo
+
+jobs:
+  lint:
+    executor: lint-condo
+    steps:
+      - checkout
+      - run: yamllint .
+
+  validate:
+    executor: cli
+    steps:
+      - checkout
+      - run: circleci orb validate src/@orb.yml
+
+workflows:
+  verify:
+    jobs:
+      - lint
+      - validate

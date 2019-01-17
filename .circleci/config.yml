@@ -34,12 +34,7 @@ workflows:
       - orb-tools/test-in-builds:
           name: test
           orb-location: src/@orb.yml
-          orb-name: vm-install
+          orb-name: vm-install-tools
           test-steps:
-            - vm-install/install-java11
-            - vm-install/install-gradle
-            - vm-install/install-docker-compose
-            - run: |
-                java --version
-                gradle --version
-                docker-compose --version
+            - orb-tools/local-test-build:
+                test-config-location: test/java11.yml

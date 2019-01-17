@@ -1,0 +1,11 @@
+version: 2.1
+
+workflows:
+  main:
+    jobs:
+      test-java11:
+        executor:
+          machine: true
+        steps:
+          - vm-install-tools/install-java11
+          - run: java --version

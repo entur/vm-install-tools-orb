@@ -28,4 +28,3 @@ workflows:
     jobs:
       - lint
       - validate
-

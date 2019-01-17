@@ -37,4 +37,4 @@ workflows:
           orb-name: vm-install-tools
           test-steps:
             - orb-tools/local-test-build:
-                test-config-location: test/java11.yml
+                test-config-location: test/install-test.yml

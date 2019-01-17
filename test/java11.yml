@@ -3,6 +3,8 @@ version: 2.1
 jobs:
   test-java11:
     machine: true
+    environment:
+      TERM: dumb
     steps:
       - vm-install-tools/install-java11
       - run: java --version

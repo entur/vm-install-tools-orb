@@ -10,4 +10,5 @@ jobs:
 workflows:
   main:
     jobs:
-      - test-java11
+      - test-java11:
+          name: build

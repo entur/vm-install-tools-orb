@@ -25,7 +25,7 @@ jobs:
       - image: cimg/base:2021.11
     steps:
       - vm-install-tools/install-java11
-      - run: java --version | grep -q "openjdk 12"
+      - run: java --version | grep -q "openjdk 11"
       - vm-install-tools/install-java17
       - run: java --version | grep -q "java 17.0.1"
       - vm-install-tools/install-gradle

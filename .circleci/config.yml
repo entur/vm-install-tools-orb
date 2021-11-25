@@ -46,7 +46,6 @@ workflows:
       - bats/run:
           path: ./src/tests
       - orb-tools/publish-dev:
-          name: publish
           orb-name: entur/vm-install-tools
           context: orb-publishing
           requires:

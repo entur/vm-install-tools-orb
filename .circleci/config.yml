@@ -21,7 +21,8 @@ parameters:
 
 jobs:
   quick-integration-tests:
-    executor: orb-tools/ubuntu
+    docker:
+      - image: cimg/base:2021.11
     steps:
       - vm-install-tools/install-java11
       - run: java --version | grep -q "openjdk 11"

@@ -21,9 +21,7 @@ parameters:
 
 jobs:
   quick-integration-tests:
-    machine: true
-    environment:
-      TERM: dumb
+    executor: orb-tools/ubuntu
     steps:
       - vm-install-tools/install-java11
       - run: java --version | grep -q "openjdk 11"
